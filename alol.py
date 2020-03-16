@@ -180,6 +180,7 @@ def chacuo():
 	return count
 
 huajian()
+printf()
 org = copy.deepcopy(blocks)
 tarcount = 0; loopcount = 1
 while True:

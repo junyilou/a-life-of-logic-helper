@@ -1,5 +1,7 @@
 ## A Life of Logic 解题/解题辅助程序
 
+[English Version of README](README-EN.md)
+
 ### 游戏简介
 
 A Life of Logic 是一个类似数独的根据一定规则填数的益智游戏，在各区 [App Store](https://apps.apple.com/cn/app/a-life-of-logic/id1329455663) 提供下载。规则十分简单，玩家需要补全所有空格，过程中需要满足以下三个规则：
