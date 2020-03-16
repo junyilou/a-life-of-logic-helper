@@ -16,7 +16,7 @@ A Life of Logic is a sudoku-like blocks filling puzzle game, which is provided o
 
 After getting puzzled by a level in Milestone 14, I decided to write a python script to help me infer these numbers, later on this script became even capable of solving some puzzles out.
 
-The script however is not very calculate-effective. It uses many repeating codes just to enumerate every rows and columns. However since it doesn't require too many calculations I'm too lazy to optimize it :D.
+The script however is not very calculate-effective. It uses many repeating codes just to enumerate every rows and columns. However given the small amount of computation I'm too lazy to optimize it :D.
 
 ### Usage
 
@@ -50,20 +50,20 @@ Repeat these oprerations, until the result doesn't change, or it already filled 
 
 #### Step 2: Enumerating
 
-Some puzzles can't be fully solved only by step 1, so next step we will have to enumerate. Of course, you could add an input() or some other code before the while True in around Line 180 to stop it beforehand. Then this script will just fill some easy blanks for you.
+Some puzzles can't be fully solved only by step 1, so next step we will have to enumerate. Of course, you could add an input() or some other code before the while True in around Line 180 to stop it beforehand. Then this script will help you fill in some of the more obvious blanks without performing any enumerations.
 
-In enumerating process, the script will fill every blank with 0, then it will run a function to detect if it violates the rule (Function `chacuo()`), like these violations:
+After entering the enumuration phase, each unknown blank will be filled with 0, then an error checking function will be performed to analyze whether filling the 0 causes violations,  (Function `chacuo()`), for example:
 
 * Three same numbers connected (checked by four ifs)
 * After filling according to the rules, the amount of 0s and 1s are not the same. (checked by two ifs)
 * After filling according to the rules, there are some same rows or columns. (checked by a for loop with two ifs)
 
-If these happens, chacuo() will return 1, the script will rollback its guess, and output 'Impossible'. Since not 0 then 1, it will fill 1 to this blank. Then, loop until the result doesn't change.
+In the above cases, chacuo() will return 1, which will cause the function to rollback its guess and output 'Impossible'. Since not 0 can't be filled, then only can 1, so the blank will be filled to 1. So on, loop until the result doesn't change.
 
 #### Step 3:
 
-There's no step 3, 2 steps already solve many puzzles. Example provided in the script has 78 'X's, but the script is still capable of solving it. If somehow it didn't, it's because everytime it enumerate one blank to 0, without changing others. You could do some manual guessing at that time, and use this script to help you infer the rest, hopefully you will get the final answer.
+There's no third step. The above 2 steps already solve many puzzles. Example provided in the script has 78 unknown blanks, but the script is still capable of solving it. If somehow it didn't, it's because each enumeration only enumerate one blank to 0, without changing others. You could do some manual guessing at that time, and use this script to help you infer the rest, hopefully you will get the final answer.
 
 
 
-Suggestions and edits are warmly welcome.
+Algorithm improvements and any suggestions are warmly welcome.
