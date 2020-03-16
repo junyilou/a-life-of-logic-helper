@@ -1,4 +1,4 @@
-##A Life of Logic 解题/解题辅助程序
+## A Life of Logic 解题/解题辅助程序
 
 ### 游戏简介
 
