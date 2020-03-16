@@ -58,7 +58,7 @@ After entering the enumuration phase, each unknown blank will be filled with 0, 
 * After filling according to the rules, the amount of 0s and 1s are not the same. (checked by two ifs)
 * After filling according to the rules, there are some same rows or columns. (checked by a for loop with two ifs)
 
-In the above cases, chacuo() will return 1, which will cause the function to rollback its guess and output 'Impossible'. Since not 0 can't be filled, then only can 1, so the blank will be filled to 1. So on, loop until the result doesn't change.
+In the above cases, chacuo() will return 1, which will cause the function to rollback its guess and output 'Impossible'. Since now 0 can't be filled, then only can 1, so the blank will be filled to 1. So on, loop until the result doesn't change.
 
 #### Step 3:
 
