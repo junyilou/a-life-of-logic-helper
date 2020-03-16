@@ -38,21 +38,21 @@ def jia(loc):
 	#被两个相同的夹在中间
 	i = loc[0]; j = loc[1]
 	if i in range(1, width - 1):
-		if blocks[i-1][j] == blocks[i+1][j]: blocks[i][j] = reverse(blocks[i+1][j])
+		if blocks[i-1][j] == blocks[i+1][j] != 'X': blocks[i][j] = reverse(blocks[i+1][j])
 	if j in range(1, width - 1):
-		if blocks[i][j-1] == blocks[i][j+1]: blocks[i][j] = reverse(blocks[i][j+1])
+		if blocks[i][j-1] == blocks[i][j+1] != 'X': blocks[i][j] = reverse(blocks[i][j+1])
 
 def lin(loc):
 	#与两个相同的相邻
 	i = loc[0]; j = loc[1]
 	if i in range(2, width):
-		if blocks[i-1][j] == blocks[i-2][j]: blocks[i][j] = reverse(blocks[i-1][j])
+		if blocks[i-1][j] == blocks[i-2][j] != 'X': blocks[i][j] = reverse(blocks[i-1][j])
 	if i in range(0, width - 2):
-		if blocks[i+1][j] == blocks[i+2][j]: blocks[i][j] = reverse(blocks[i+1][j])
+		if blocks[i+1][j] == blocks[i+2][j] != 'X': blocks[i][j] = reverse(blocks[i+1][j])
 	if j in range(2, width):
-		if blocks[i][j-1] == blocks[i][j-2]: blocks[i][j] = reverse(blocks[i][j-1])
+		if blocks[i][j-1] == blocks[i][j-2] != 'X': blocks[i][j] = reverse(blocks[i][j-1])
 	if j in range(0, width - 2):
-		if blocks[i][j+1] == blocks[i][j+2]: blocks[i][j] = reverse(blocks[i][j+1])
+		if blocks[i][j+1] == blocks[i][j+2] != 'X': blocks[i][j] = reverse(blocks[i][j+1])
 
 def hlc():
 	#行列个数
