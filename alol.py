@@ -206,3 +206,11 @@ while True:
 	huajian()
 	printf()
 	tarcount = len(tar); loopcount += 1
+
+if len(tar):
+	print("\nThis script did not complete the map,\nplease manually guess some blanks.")
+	print("Use the following as your new block:\n")
+	for b in blocks:
+		print("".join(b))
+else:
+	print("Solved!")
