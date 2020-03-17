@@ -203,5 +203,6 @@ while True:
 			org[x][y] = '0'
 		blocks = copy.deepcopy(org)
 		print()
+	huajian()
 	printf()
 	tarcount = len(tar); loopcount += 1
