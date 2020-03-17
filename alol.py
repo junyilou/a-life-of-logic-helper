@@ -132,7 +132,7 @@ def printf():
 		for j in range(width):
 			if blocks[i][j] == 'X': xcount += 1
 			print('[' + str(blocks[i][j]) + '] ', end = '')
-		print(blocks[i].count('0'),'\n')
+		print('\n')
 	print("XCount: " + str(xcount))
 	if(xcount == 0): 
 		if chacuo() > 0:

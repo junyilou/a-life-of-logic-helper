@@ -62,7 +62,9 @@ In the above cases, chacuo() will return 1, which will cause the function to rol
 
 #### Step 3:
 
-There's no third step. The above 2 steps already solve many puzzles. Example provided in the script has 78 unknown blanks, but the script is still capable of solving it. If somehow it didn't, it's because each enumeration only enumerate one blank to 0, without changing others. You could do some manual guessing at that time, and use this script to help you infer the rest, hopefully you will get the final answer.
+There's no third step. The above 2 steps already solve many puzzles before Milestone 16. If somehow it didn't, it's because each enumeration only enumerate one blank to 0, without changing others. You could do some manual guessing at that time, and use this script to help you infer the rest, hopefully you will get the final answer.
+
+I'm planning on updating my script so it's capable of enumerating two 0s or two 1s at the sametime, after some tests it proves this could solve every puzzle in Milestone 16. (I haven't unlock harder levels yet, haha).
 
 
 
