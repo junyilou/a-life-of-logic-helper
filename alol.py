@@ -201,6 +201,7 @@ while True:
 			org[x][y] = '1'; im = True
 		if im == False and xc == '0':
 			org[x][y] = '0'
+			print(); break
 		blocks = copy.deepcopy(org)
 		print()
 	huajian()
