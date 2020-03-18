@@ -172,8 +172,8 @@ def chacuo():
 		if "111" in "".join(hang[i]): count = 1
 		if "000" in "".join(lie[i]): count = 1
 		if "111" in "".join(lie[i]):  count = 1
-		if ("X" not in hang[i]) and ("".join(hang[i]).count("0") != width / 2): count = 1
-		if ("X" not in lie[i]) and ("".join(lie[i]).count("0") != width / 2): count = 1
+		if ("X" not in hang[i]) and (hang[i].count("0") != width / 2): count = 1
+		if ("X" not in lie[i]) and (lie[i].count("0") != width / 2): count = 1
 		for j in range(width):
 			if ("X" not in hang[i]) and (hang[i] == hang[j]) and i < j: count = 1
 			if ("X" not in lie[i]) and (lie[i] == lie[j]) and i < j: count = 1
@@ -196,12 +196,11 @@ while True:
 		blocks[x][y] = '0'
 		xc = huajian(); im = False
 		print("(" + str(x) + "," + str(y) + ") = 0: Xcount: " + xc, end = "")
-		if chacuo() > 0: 
+		if chacuo() == 1: 
 			print(" Impossible.", end = "")
 			org[x][y] = '1'; im = True
 		if im == False and xc == '0':
-			org[x][y] = '0'
-			print(); break
+			print(" Break."); break
 		blocks = copy.deepcopy(org)
 		print()
 	huajian()
