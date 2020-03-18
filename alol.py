@@ -182,7 +182,7 @@ def chacuo():
 huajian()
 printf()
 org = copy.deepcopy(blocks)
-tarcount = 0; loopcount = 1
+tarcount = 0; loopcount = 1; im = False
 while True:
 	tar = list()
 	for i in range(width):
@@ -213,5 +213,5 @@ if len(tar):
 	print("Use the following as your new block:\n")
 	for b in blocks:
 		print("".join(b))
-else:
+elif im == False:
 	print("Solved!")
