@@ -123,7 +123,7 @@ def bu():
 						if lie[m] == 'X' == lie[m+1] == lie[m+2]: xloc = m
 					if xloc < width - 3 and lie[xloc+3] == tr:
 						blocks[xloc][i] = tr
-					if xloc > 0 and hang[xloc-1] == tr:
+					if xloc > 0 and lie[xloc-1] == tr:
 						blocks[xloc+2][i] = tr
 
 def printf():
