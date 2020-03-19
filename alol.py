@@ -1,15 +1,15 @@
 import copy
 
-block = '''X1XXXX1XX1
-XXXX1XX0XX
-XX1XXXXXXX
-XXXXXXXXXX
-XX11XX0X1X
-0XXXXXXXX0
-X1XXXX0XXX
-X1XXXXXXXX
-XXXX11XXX1
-0X1XX1X0XX'''
+block = '''X1XXXX0XXX
+XXXXXX0XXX
+1XXX1XXXXX
+XXX1XX0XXX
+00XXX1X1XX
+XXXX0XXXX0
+1XX1XXXXXX
+XX1XXXXX1X
+X0XXX1XXXX
+X00XXXXX1X''' #Level 19.5
 
 block = block.split("\n")
 s = list(); blocks = list()
@@ -35,7 +35,6 @@ def total():
 	return c
 
 def jia(loc):
-	#被两个相同的夹在中间
 	i = loc[0]; j = loc[1]
 	if i in range(1, width - 1):
 		if blocks[i-1][j] == blocks[i+1][j] != 'X': blocks[i][j] = reverse(blocks[i+1][j])
@@ -43,7 +42,6 @@ def jia(loc):
 		if blocks[i][j-1] == blocks[i][j+1] != 'X': blocks[i][j] = reverse(blocks[i][j+1])
 
 def lin(loc):
-	#与两个相同的相邻
 	i = loc[0]; j = loc[1]
 	if i in range(2, width):
 		if blocks[i-1][j] == blocks[i-2][j] != 'X': blocks[i][j] = reverse(blocks[i-1][j])
@@ -55,7 +53,6 @@ def lin(loc):
 		if blocks[i][j+1] == blocks[i][j+2] != 'X': blocks[i][j] = reverse(blocks[i][j+1])
 
 def hlc():
-	#行列个数
 	revBlocks = list(map(list, zip(*blocks)))
 	for i in range(width):
 		hang = blocks[i]
@@ -74,7 +71,6 @@ def hlc():
 				if lie[h] == 'X': blocks[h][i] = '0'
 
 def bu():
-	#必要补项
 	revBlocks = list(map(list, zip(*blocks)))
 	for i in range(width):
 		hang = "".join(blocks[i])
@@ -127,10 +123,9 @@ def bu():
 						blocks[xloc+2][i] = tr
 
 def printf():
-	xcount = 0
+	xcount = total()
 	for i in range(width):
 		for j in range(width):
-			if blocks[i][j] == 'X': xcount += 1
 			print('[' + str(blocks[i][j]) + '] ', end = '')
 		print('\n')
 	print("XCount: " + str(xcount))
@@ -153,11 +148,7 @@ def huajian():
 		hlc()
 		bu()
 		if blocks == com: break
-	xcount = 0
-	for i in range(width):
-		for j in range(width):
-			if blocks[i][j] == 'X': xcount += 1
-	return str(xcount)
+	return str(total())
 
 def chacuo():
 	hang = list(); lie = list()
@@ -191,18 +182,21 @@ while True:
 				tar.append((i,j))
 	if tarcount == len(tar) or len(tar) == 0: break
 	print("\nLoop " + str(loopcount))
+	flag = False
 	for t in tar:
 		x = t[0]; y = t[1]
-		blocks[x][y] = '0'
-		xc = huajian(); im = False
-		print("(" + str(x) + "," + str(y) + ") = 0: Xcount: " + xc, end = "")
-		if chacuo() == 1: 
-			print(" Impossible.", end = "")
-			org[x][y] = '1'; im = True
-		if im == False and xc == '0':
-			print(" Break."); break
-		blocks = copy.deepcopy(org)
-		print()
+		for r in ('0', '1'):
+			blocks[x][y] = r
+			xc = huajian(); im = False
+			print("(" + str(x) + "," + str(y) + ") = " + r + ": Xcount: " + xc, end = "")
+			if chacuo() == 1: 
+				print(" Impossible.", end = "")
+				org[x][y] = reverse(r); im = True
+			if im == False and xc == '0':
+				print(" Break."); flag = True; break
+			blocks = copy.deepcopy(org)
+			print()
+		if flag: break
 	huajian()
 	printf()
 	tarcount = len(tar); loopcount += 1
