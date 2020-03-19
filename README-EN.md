@@ -52,19 +52,19 @@ Repeat these oprerations, until the result doesn't change, or it already filled 
 
 Some puzzles can't be fully solved only by step 1, so next step we will have to enumerate. Of course, you could add an input() or some other code before the while True in around Line 180 to stop it beforehand. Then this script will help you fill in some of the more obvious blanks without performing any enumerations.
 
-After entering the enumuration phase, each unknown blank will be filled with 0, then an error checking function will be performed to analyze whether filling the 0 causes violations,  (Function `chacuo()`), for example:
+After entering the enumuration phase, each unknown blank will be filled with 0, and 1, then an error checking function will be performed to analyze whether filling the 0, or 1 causes violations (Function `chacuo()`), for example:
 
 * Three same numbers connected (checked by four ifs)
 * After filling according to the rules, the amount of 0s and 1s are not the same. (checked by two ifs)
 * After filling according to the rules, there are some same rows or columns. (checked by a for loop with two ifs)
 
-In the above cases, chacuo() will return 1, which will cause the function to rollback its guess and output 'Impossible'. Since now 0 can't be filled, then only can 1, so the blank will be filled to 1. So on, loop until the result doesn't change.
+In the above cases, chacuo() will return 1, which will cause the function to rollback its guess and output 'Impossible'. Since if 0 can't be filled, only can 1, so the blank will be filled to what it should be. So on, loop until the result doesn't change.
 
 #### Step 3:
 
-There's no third step. The above 2 steps already solve many puzzles before Milestone 16. If somehow it didn't, it's because each enumeration only enumerate one blank to 0, without changing others. You could do some manual guessing at that time, and use this script to help you infer the rest, hopefully you will get the final answer.
+There's no third step. The above 2 steps already solve many puzzles before Milestone 17. If somehow it didn't, it's because each enumeration only enumerate one blank to 0 or 1, without changing others. You could do some manual guessing at that time, and use this script to help you infer the rest, hopefully you will get the final answer.
 
-I'm planning on updating my script so it's capable of enumerating two 0s or two 1s at the sametime, after some tests it proves this could solve every puzzle in Milestone 16. (I haven't unlock harder levels yet, haha).
+A great way to do some manual guessing is, find the row or column which has only two 0 or 1 left to fill, let's assume there are N blank boxes left, if you do the math there are only $N*(N-1)/2$ possibilities, usually less than 10. After some tests, it proves this method could solve any puzzles before Milestone 20 (I haven't fully unlock Milestone 20 yet).
 
 
 
