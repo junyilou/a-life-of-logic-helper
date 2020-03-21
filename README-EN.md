@@ -64,7 +64,7 @@ In the above cases, chacuo() will return 1, which will cause the function to rol
 
 There's no third step. The above 2 steps already solve many puzzles before Milestone 17. If somehow it didn't, it's because each enumeration only enumerate one blank to 0 or 1, without changing others. You could do some manual guessing at that time, and use this script to help you infer the rest, hopefully you will get the final answer.
 
-A great way to do some manual guessing is, find the row or column which has only two 0 or 1 left to fill, let's assume there are N blank boxes left, if you do the math there are only $N*(N-1)/2$ possibilities, usually less than 10. After some tests, it proves this method could solve any puzzles before Milestone 20 (I haven't fully unlock Milestone 20 yet).
+A great way to do some manual guessing is, find the row or column which has only two 0 or 1 left to fill, let's assume there are N blank boxes left, if you do the math there are only `N*(N-1)/2` possibilities, usually less than 10, sometimes 15 if you are filling a 12x12 map. After some tests, it proves this method could solve any puzzles in this game.
 
 
 
